@@ -1,0 +1,81 @@
+<!--Div Body Campos Cadastro-->
+<div tabindex="0" class="body">
+  <!--Alinhar itens no centro-->
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <!-- Div Login-->
+    <div class="cadastro-container">
+      <!--Form com Campos Login-->
+
+
+      <form
+        [formGroup]="myForm"
+        (ngSubmit)="onSubmit()"
+        class="cadastro-form p-4"
+      >
+        <h2 class="text-center mb-4">Cadastro</h2>
+
+        <!--Div input Email-->
+        <div class="mb-3">
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control"
+            placeholder="Insira seu email"
+            required
+          />
+          <!--Validação Email-->
+          <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+            <span class="text-danger fw-bold">Email inválido</span>
+          </div>
+
+        </div>
+
+        <!--Div inputCPF-->
+        <div class="mb-3">
+          <input
+            formControlName="cpf"
+            type="text"
+            class="form-control"
+            placeholder="Insira seu CPF"
+            required
+          />
+          <!--Validação CPF-->
+          <div *ngIf="myForm.get('cpf')?.invalid && myForm.get('cpf')?.touched">
+            <span class="text-danger">O CPF deve conter 11 dígitos</span>
+          </div>
+        </div>
+
+        <!--Div Input Senha-->
+        <div class="mb-3">
+          <input
+            formControlName="senha"
+            type="password"
+            class="form-control"
+            placeholder="Insira sua senha"
+            required
+          />
+          <!--Validação Senha-->
+          <div *ngIf="myForm.get('senha')?.invalid && myForm.get('senha')?.touched">
+            <span class="text-danger">Sua senha deve conter pelo menos 6 caracteres</span>
+          </div>
+        </div>
+
+
+        <!--Botão Entrar-->
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary">
+            Cadastrar
+          </button>
+        </div>
+
+         <div *ngIf="errorMessage" class="alert alert-danger mt-3 text-center">
+          {{ errorMessage }}
+        </div>
+
+        <div class="text-center mt-3">
+          <a routerLink="/pagina-login"> Voltar para Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

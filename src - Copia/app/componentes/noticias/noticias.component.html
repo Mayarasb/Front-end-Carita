@@ -1,0 +1,27 @@
+<!-- Cartões (Noticias)-->
+<!-- Cartões com For para Seleção de dados-->
+<div tabindex="0" class="card">
+  <div
+    *ngFor="let Informacoesnoticias of categorias"
+    class="row g-1 noticia"
+  >
+    <div class="col-md-4">
+      <img
+        src="{{ Informacoesnoticias.image }}"
+        class="img-fluid rounded-start"
+        alt="..."
+      />
+    </div>
+    <div class="col-md-8 texto-noticia">
+      <div class="card-body">
+        <h5 class="card-title titulo-noticia">
+          {{ Informacoesnoticias.title }}
+        </h5>
+        <p class="card-text">{{ Informacoesnoticias.description }}</p>
+        <a class="botao-noticia link btn btn-primary" routerLink="{{Informacoesnoticias.rotas}}">
+  {{Informacoesnoticias.button}}
+</a>
+      </div>
+    </div>
+  </div>
+</div>

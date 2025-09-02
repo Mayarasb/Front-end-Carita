@@ -1,0 +1,70 @@
+<!--Como ajudar Maps-->
+<div tabindex="0"style="display: inline-flexbox">
+  <!--Faixa Como Ajudar-->
+  <div class="faixaCA text-center">
+    <h1>Como Ajudar</h1>
+  </div>
+</div>
+
+<!--Div Descrição-->
+<div tabindex="0" class="d-flex text-center">
+  <div class="textoinicial">
+    <p>
+      As doações de alimentos são essenciais para manter nossos pontos de
+      arrecadação abastecidos e garantir que as famílias em situação de
+      vulnerabilidade tenham acesso a alimentos essenciais. Abaixo, você
+      encontrará uma lista com os locais onde pode fazer suas doações no ponto
+      mais próximo.
+    </p>
+  </div>
+</div>
+
+<!--Div containers conteudo-->
+<div tabindex="0" class="container my-4" style="color: #522916;">
+  <div class="mx-auto p-4 rounded pontos-arrecadacao" >
+      <!-- Título -->
+      <h5 class="text-center fw-bold mb-4">Pontos de Doação</h5>
+
+      <!-- Campo de pesquisa -->
+      <div class="input-group mb-3">
+        <span class="input-group-text  ">
+          <i class="fas fa-search"></i>
+        </span>
+        <input type="text" class="form-control " placeholder="Pesquise" style="border: 1px solid #522916;">
+      </div>
+
+ <div *ngFor="let ponto of pontosArrecadacao" tabindex="0" class="cards-enderecos p-3 mb-3">
+  <div class="d-flex">
+    <i class="fas fa-map-marker-alt fs-4 me-3"></i>
+    <div>
+      <strong>{{ ponto.parceiro?.nome }}</strong><br />
+      <span class="text-muted">
+        <strong>Endereço:</strong>
+        {{ ponto.logradouro }}, {{ ponto.numero }} – {{ ponto.bairro }},
+        {{ ponto.cidade }} - {{ ponto.estado }}, {{ ponto.cep }}
+      </span>
+    </div>
+  </div>
+</div>
+
+
+
+     <!-- Paginação -->
+          <nav  aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+  <!--Maps-->
+  <div class="col-md-6">
+    <app-mapa></app-mapa>
+  </div>
+</div>
+

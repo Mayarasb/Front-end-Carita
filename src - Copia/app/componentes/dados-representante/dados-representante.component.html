@@ -1,0 +1,134 @@
+<!--Dados Representante Ongs-->
+<div tabindex="0" class="container-fluid main-content">
+  <!-- Conteudo Página-->
+  <div class="page-container">
+    <!--Sidebar-->
+    <div class="sidebar">
+      <div class="sidebar-content">
+        <div class="dados-instituição d-flex flex-column align-items-center">
+          <img
+            src="\img\logo.png"
+            alt="Logo"
+            class="img-usuario d-inline-block align-text-top"
+          />
+          <a class="navbar-brand"> Olá, Organização! </a>
+        </div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a
+              (click)="irParaDadosOrganizacao()"
+              class="nav-link"
+              style="cursor: pointer"
+            >
+              Dados Instituição
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/pagina-representante" class="nav-link"
+              >Dados Representante da Organização</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/pagina-desativarOng" class="nav-link">Desativar</a>
+          </li>
+
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link" style="cursor: pointer"
+              >Sair</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!--Reactive Forms-->
+    <div class="main-content flex-grow-1">
+      <form
+        [formGroup]="RepresentanteForm"
+        (ngSubmit)="onSubmit()"
+        class="form-content container-fluid"
+      >
+        <h2 class="text-center">Dados do Representante</h2>
+
+        <!-- Input de CPF -->
+        <div class="row align-items-center mt-3">
+          <div class="form-group col-11">
+            <label for="cpf">CPF</label>
+            <input
+              formControlName="cpf"
+              type="text"
+              id="cpf"
+              name="cpf"
+              class="form-control"
+              placeholder="000.000.000-00"
+            />
+
+            <!--Validação CPF-->
+            <div
+              *ngIf="
+                RepresentanteForm.get('cpf')?.invalid &&
+                RepresentanteForm.get('cpf')?.touched
+              "
+            >
+              <span class="text-danger">O CPF deve conter 11 digitos</span>
+            </div>
+          </div>
+        </div>
+
+        <!--Input Email-->
+
+        <div class="row align-items-center mt-3">
+          <div class="form-group col-11">
+            <label for="email">Email</label>
+            <input
+              formControlName="email"
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="exemplo@dominio.com"
+            />
+
+            <!-- Validação Email -->
+            <div
+              *ngIf="
+                RepresentanteForm.get('email')?.invalid &&
+                RepresentanteForm.get('email')?.touched
+              "
+            >
+              <span class="text-danger">Email Inválido</span>
+            </div>
+          </div>
+        </div>
+
+        <!--Termos -->
+        <div class="alert col-11">
+          <span>
+            Ao atualizar o representante, o novo indicado receberá um e-mail com
+            as instruções para aceitar a responsabilidade. Após a aceitação,
+            todos os acessos administrativos serão concedidos ao novo
+            representante
+          </span>
+        </div>
+
+        <!-- Button  -->
+
+        <div class="d-grid justify-content-center">
+          <button
+            type="submit"
+            class="btn btn-enviar"
+
+          >
+            Enviar
+          </button>
+
+          <div *ngIf="showAlert" class="alert mt-3 text-center" role="alert">
+            Dados enviados com sucesso!
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- isso no botao [disabled]="RepresentanteForm.invalid"-->

@@ -1,0 +1,25 @@
+<!--Card Como Ajudar: Página Principal-->
+<!--Função For passando pelos dados CardsInformativos para seleção de dados-->
+<div tabindex="0" *ngFor="let CardsInformativos of comoAjudar" class="meioinf">
+  <!--Seleção Imagem-->
+  <div class="imgmeioinf">
+    <img src="{{ CardsInformativos.image }}" alt="imgmeioinf" id="imgmeioinf" />
+  </div>
+  <!--Div conteudo meio Texto-->
+  <div class="contmeioinf">
+    <div class="textogmeioinf">
+      <!--Seleção título-->
+      <h1 id="textog">{{ CardsInformativos.title }}</h1>
+    </div>
+    <div class="textopmeioinf">
+      <!--Seleção Descrição-->
+      <p id="textop">{{ CardsInformativos.description }}</p>
+    </div>
+    <div class="botaomeioinf">
+      <a href="/pagina-comoAjudar" class="btn btn-primary btn-lg" id="botao">
+        <!--Seleção botão com rota-->
+        {{ CardsInformativos.button }}
+      </a>
+    </div>
+  </div>
+</div>

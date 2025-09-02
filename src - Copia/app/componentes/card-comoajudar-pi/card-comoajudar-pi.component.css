@@ -1,0 +1,62 @@
+#textog{
+  font-weight: 700;
+  font-style: normal;
+  padding-bottom: 20px;
+}
+
+#textop{
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+/* CSS Cabeçalho */
+
+
+#botao{
+  padding: 10px 20px;
+  border-radius: 16px;
+  width: 150px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #F9C89B;
+  color: #522916 ;
+  font-weight: bold;
+}
+#botao a{
+  text-decoration: none;
+  color: #522916;
+}
+
+.meioinf{
+  background: white ;
+  display: flex;
+  color: #522916;
+  height: 280px;
+
+}
+
+.contmeioinf{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-left: 30px;
+}
+
+#imgmeioinf{
+  width: 320px;
+  height: 250px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 40px;
+  border-bottom: 40px;
+  padding-left:  20px;
+  padding-right: 20px;
+}
+

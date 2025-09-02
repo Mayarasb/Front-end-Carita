@@ -1,0 +1,59 @@
+.body {
+  font-family: 'Poppins';
+  background: url('/img/Login-Cadastro/background login- desfoque.png') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(3px);
+}
+
+
+.cadastro-form {
+  border-radius: 8px;
+  text-align: center;
+  border: none;
+}
+
+.cadastro-form h2 {
+  font-weight: bolder;
+  font-size: 44px;
+  color: white; 
+}
+
+.cadastro-form input {
+  width: 400px;
+  height: 50px;
+  margin-bottom: 1.75rem;
+  border-radius: 15px;
+  font-size: 1rem;
+  
+}
+
+::placeholder {
+  text-align: center;
+  color: var(--cor-texto-primaria);
+  }
+
+.cadastro-form button {
+  padding: 0.75rem;
+  background-color: #F08F36;
+  border: none;
+  border-radius: 40px;
+  color: #000000;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+
+.cadastro-form button:hover {
+  background-color: #F9C89B;
+}
+
+.cadastro-form a {
+  text-decoration: none;
+  color: white; /* Cor do link "Criar conta" */
+}
+
+.cadastro-form span.text-danger {
+  color: #fff1e3 !important;
+  font-weight: bold;      
+  font-size: 0.95rem; 
+}

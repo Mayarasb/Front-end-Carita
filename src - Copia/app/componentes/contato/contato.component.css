@@ -1,0 +1,65 @@
+.body{
+    background-color: #F9C89B;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 80px 0px;
+}
+
+.logoForm{
+    width: 400px;
+}
+
+form {
+    max-width: 600px;
+    width: 100%;
+    padding-right: 80px;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 44px;
+    padding-bottom: 10px;
+}
+
+form label {
+    font-weight: bold;
+    color: #522916;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+::placeholder{
+    color: #522916;
+}
+
+form textarea {
+    height: 80px;
+}
+
+.botao {
+    width: 200px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-textoAlternativo);
+}
+
+.alert {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-textoAlternativo);
+}

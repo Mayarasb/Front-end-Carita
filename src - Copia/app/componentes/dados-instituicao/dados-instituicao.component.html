@@ -1,0 +1,561 @@
+<!--Página Bkackgtounf-->
+<div tabindex="0" class="container-fluid main-content">
+  <!--Background área Formulário-->
+  <div class="page-container">
+    <!--SideBar: Backgound-->
+    <div class="sidebar">
+      <!--Conteúdo Sidebar-->
+      <div class="sidebar-content">
+        <!--Imagem Sidebar-->
+        <div class="dados-instituição d-flex flex-column align-items-center">
+          <img
+            src="\img\logo.png"
+            alt="Logo"
+            class="img-usuario d-inline-block align-text-top"
+          />
+          <a class="navbar-brand"> Olá, Organização! </a>
+        </div>
+
+        <!--Tópicos Sidebar-->
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a
+              (click)="irParaDadosOrganizacao()"
+              class="nav-link"
+              style="cursor: pointer"
+            >
+              Dados Instituição
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/pagina-representante" class="nav-link"
+              >Dados Representante da Organização</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/pagina-desativarOng" class="nav-link">Desativar</a>
+          </li>
+
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link" style="cursor: pointer"
+              >Sair</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Base Formulário-->
+
+    <div class="main-content flex-grow-1">
+      <!--Formulário Reativo-->
+      <form
+        [formGroup]="formOrganizacao"
+        (ngSubmit)="onSubmit()"
+        class="form-content container-fluid"
+      >
+        <h2 class="text-center">Dados da Organização</h2>
+
+        <!--Inputs-->
+        <!--Input Nome-->
+        <div class="row">
+          <div class="form-group col-12">
+            <label for="nome">Nome Organização</label>
+            <input
+              type="text"
+              id="nome"
+              class="form-control"
+              placeholder="Nome Completo"
+              formControlName="nome"
+            />
+
+            <!--Validação Nome-->
+            <div
+              *ngIf="
+                formOrganizacao.get('nome')?.invalid &&
+                formOrganizacao.get('nome')?.touched
+              "
+              class="text-danger"
+            >
+              <small *ngIf="formOrganizacao.get('nome')?.errors?.['required']"
+                >O nome da organização é obrigatório.</small
+              >
+              <small *ngIf="formOrganizacao.get('nome')?.errors?.['minlength']"
+                >O nome deve ter no mínimo 3 caracteres.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <!--Input CNPJ-->
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="cnpj">CNPJ</label>
+            <input
+              type="text"
+              id="cnpj"
+              class="form-control"
+              placeholder="00.000.000/0000-00"
+              formControlName="cnpj"
+            />
+            <!--Validação CNPJ-->
+            <div
+              *ngIf="
+                formOrganizacao.get('cnpj')?.invalid &&
+                formOrganizacao.get('cnpj')?.touched
+              "
+              class="text-danger"
+            >
+              <small *ngIf="formOrganizacao.get('cnpj')?.errors?.['required']"
+                >O CNPJ é obrigatório.</small
+              >
+              <small *ngIf="formOrganizacao.get('cnpj')?.errors?.['pattern']"
+                >CNPJ inválido. Formato esperado: 00.000.000/0000-00.</small
+              >
+            </div>
+          </div>
+
+          <!--Input Telefone-->
+          <div class="form-group col-6">
+            <label for="telefone">Telefone</label>
+            <input
+              type="text"
+              id="telefone"
+              class="form-control"
+              placeholder="(00) 00000-0000"
+              formControlName="telefone"
+            />
+
+            <!--Validação Telefone-->
+            <div
+              *ngIf="
+                formOrganizacao.get('telefone')?.invalid &&
+                formOrganizacao.get('telefone')?.touched
+              "
+              class="text-danger"
+            >
+              <small
+                *ngIf="formOrganizacao.get('telefone')?.errors?.['required']"
+                >O telefone é obrigatório.</small
+              >
+              <small
+                *ngIf="formOrganizacao.get('telefone')?.errors?.['pattern']"
+                >Telefone inválido. Formato esperado: (00) 00000-0000.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <!--Input Email-->
+        <div class="row">
+          <div class="form-group col-12">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              placeholder="exemplo@dominio.com"
+              formControlName="email"
+            />
+
+            <!--Validação Email-->
+            <div
+              *ngIf="
+                formOrganizacao.get('email')?.invalid &&
+                formOrganizacao.get('email')?.touched
+              "
+              class="text-danger"
+            >
+              <small *ngIf="formOrganizacao.get('email')?.errors?.['required']"
+                >O email é obrigatório.</small
+              >
+              <small *ngIf="formOrganizacao.get('email')?.errors?.['email']"
+                >Formato de email inválido.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <!--Input Chave Pix-->
+
+        <div class="form-group col-12">
+          <label for="numeroPix">Chave-Pix</label>
+          <input
+            type="text"
+            id="chave-pix"
+            class="form-control"
+            formControlName="numeroPix"
+          />
+
+          <div
+            *ngIf="
+              formOrganizacao.get('numeroPix')?.invalid &&
+              formOrganizacao.get('numeroPix')?.touched
+            "
+            class="text-danger"
+          >
+            <small>O número da chave pix é obrigatório.</small>
+          </div>
+        </div>
+
+        <!--Input Site-->
+
+        <div class="row">
+          <div class="form-group col-12">
+            <label for="sites">Site</label>
+            <input
+              type="text"
+              id="sites"
+              class="form-control"
+              placeholder="https://www.exemplo.com"
+              formControlName="site"
+            />
+          </div>
+        </div>
+
+        <!--Input Tipo Instituição-->
+
+        <div class="row">
+          <div class="form-group col-5">
+            <label for="tipoInstituicao">Tipo Instituição</label>
+            <input
+              type="text"
+              id="tipoInstituicao"
+              class="form-control"
+              placeholder="ex: ONG, Associação, Instituto"
+              formControlName="tipoInstituicao"
+            />
+
+            <!--Validação Tipo Instituição-->
+            <div
+              *ngIf="
+                formOrganizacao.get('tipoInstituicao')?.invalid &&
+                formOrganizacao.get('tipoInstituicao')?.touched
+              "
+              class="text-danger"
+            >
+              <small>O tipo de instituição é obrigatório.</small>
+            </div>
+          </div>
+
+          <!--Input Ano Fundação-->
+
+          <div class="form-group col-2">
+            <label for="anoFundacao">Ano fundação</label>
+            <input
+              type="text"
+              id="anoFundacao"
+              class="form-control"
+              formControlName="anoFundacao"
+            />
+
+            <!--Validação Ano Fundação-->
+            <div
+              *ngIf="
+                formOrganizacao.get('anoFundacao')?.invalid &&
+                formOrganizacao.get('anoFundacao')?.touched
+              "
+              class="text-danger"
+            >
+              <small
+                *ngIf="formOrganizacao.get('anoFundacao')?.errors?.['required']"
+                >O ano de fundação é obrigatório.</small
+              >
+              <small
+                *ngIf="formOrganizacao.get('anoFundacao')?.errors?.['pattern']"
+                >O ano deve ser um valor numérico de 4 dígitos.</small
+              >
+            </div>
+          </div>
+
+          <!--Input Area de Atuação-->
+
+          <div class="form-group col-5">
+            <label for="areaAtuacao">Área de atuação</label>
+            <input
+              type="text"
+              id="areaAtuacao"
+              class="form-control"
+              placeholder="ex: Saúde, Educação, Meio Ambiente"
+              formControlName="areaAtuacao"
+            />
+
+            <!--Validação Area de Atuação-->
+            <div
+              *ngIf="
+                formOrganizacao.get('areaAtuacao')?.invalid &&
+                formOrganizacao.get('areaAtuacao')?.touched
+              "
+              class="text-danger"
+            >
+              <small>A área de atuação é obrigatória.</small>
+            </div>
+          </div>
+        </div>
+
+        <!--Input Descrição -->
+
+        <div class="row">
+          <div class="form-group col-12">
+            <label for="descricaoInstituicao">Descrição da Instituição</label>
+            <textarea
+              id="descricaoInstituicao"
+              class="form-control"
+              placeholder="Descreva a instituição (ex: Missão, Visão, Objetivos)"
+              formControlName="descricaoInstituicao"
+            ></textarea>
+
+            <!--Validação Descrição-->
+            <div
+              *ngIf="
+                formOrganizacao.get('descricaoInstituicao')?.invalid &&
+                formOrganizacao.get('descricaoInstituicao')?.touched
+              "
+              class="text-danger"
+            >
+              <small
+                *ngIf="formOrganizacao.get('descricaoInstituicao')?.errors?.['required']"
+                >A descrição é obrigatória.</small
+              >
+              <small
+                *ngIf="formOrganizacao.get('descricaoInstituicao')?.errors?.['maxLength']"
+                >A descrição pode ter no máximo 500 caracteres.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <!--Input Endereço-->
+
+        <!--Input Logradouro-->
+        <div class="row">
+          <div class="form-group col-9">
+            <label for="logradouro">Logradouro</label>
+            <input
+              type="text"
+              id="logradouro"
+              class="form-control"
+              placeholder="Rua Exemplo, 123"
+              formControlName="logradouro"
+            />
+            <div
+              *ngIf="
+                formOrganizacao.get('logradouro')?.invalid &&
+                formOrganizacao.get('logradouro')?.touched
+              "
+              class="text-danger"
+            >
+              <small
+                *ngIf="formOrganizacao.get('logradouro')?.errors?.['required']"
+                >O logradouro é obrigatório.</small
+              >
+            </div>
+          </div>
+
+          <!--Input Numero-->
+
+          <div class="form-group col-3">
+            <label for="numero">Número</label>
+            <input
+              type="text"
+              id="numero"
+              class="form-control"
+              formControlName="numero"
+            />
+            <!--Validação Numero-->
+            <div
+              *ngIf="
+                formOrganizacao.get('numero')?.invalid &&
+                formOrganizacao.get('numero')?.touched
+              "
+              class="text-danger"
+            >
+              <small *ngIf="formOrganizacao.get('numero')?.errors?.['required']"
+                >O número é obrigatório.</small
+              >
+              <small
+                *ngIf="formOrganizacao.get('numero')?.errors?.['minlength']"
+                >O número deve ter no mínimo 2 caracteres.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <!--Input Bairro-->
+
+        <div class="row">
+          <div class="form-group col-4">
+            <label for="bairro">Bairro</label>
+            <input
+              type="text"
+              id="bairro"
+              class="form-control"
+              placeholder="Bairro Exemplo"
+              formControlName="bairro"
+            />
+
+            <!--Validação Bairro-->
+            <div
+              *ngIf="
+                formOrganizacao.get('bairro')?.invalid &&
+                formOrganizacao.get('bairro')?.touched
+              "
+              class="text-danger"
+            >
+              <small *ngIf="formOrganizacao.get('bairro')?.errors?.['required']"
+                >O bairro é obrigatório.</small
+              >
+              <small
+                *ngIf="formOrganizacao.get('bairro')?.errors?.['minlength']"
+                >O bairro deve ter no mínimo 5 caracteres.</small
+              >
+            </div>
+          </div>
+
+          <!--Input Cidade-->
+
+          <div class="form-group col-4">
+            <label for="cidade">Cidade</label>
+            <input
+              type="text"
+              id="cidade"
+              class="form-control"
+              placeholder="Cidade Exemplo"
+              formControlName="cidade"
+            />
+            <!--Validação Cidade-->
+            <div
+              *ngIf="
+                formOrganizacao.get('cidade')?.invalid &&
+                formOrganizacao.get('cidade')?.touched
+              "
+              class="text-danger"
+            >
+              <small *ngIf="formOrganizacao.get('cidade')?.errors?.['required']"
+                >A cidade é obrigatório.</small
+              >
+              <small
+                *ngIf="formOrganizacao.get('numero')?.errors?.['minlength']"
+                >A cidade deve ter no mínimo 2 caracteres.</small
+              >
+            </div>
+          </div>
+
+          <!--Input Estado-->
+
+          <div class="form-group col-4">
+            <label for="estado">Estado</label>
+            <input
+              type="text"
+              id="estado"
+              class="form-control"
+              placeholder="ex: São Paulo"
+              formControlName="estado"
+            />
+
+            <!--Validação Estado-->
+            <div
+              *ngIf="
+                formOrganizacao.get('estado')?.invalid &&
+                formOrganizacao.get('estado')?.touched
+              "
+              class="text-danger"
+            >
+              <small *ngIf="formOrganizacao.get('estado')?.errors?.['required']"
+                >O estado é obrigatório.</small
+              >
+              <small
+                *ngIf="formOrganizacao.get('estado')?.errors?.['minlength']"
+                >O estado deve ter no mínimo 2 caracteres.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <!--Input CEP-->
+
+        <div class="row">
+          <div class="form-group col-4">
+            <label for="cep">CEP</label>
+            <input
+              type="text"
+              id="cep"
+              class="form-control"
+              placeholder="00000-000"
+              formControlName="cep"
+            />
+
+            <!--Validação Cep-->
+            <div
+              *ngIf="
+                formOrganizacao.get('cep')?.invalid &&
+                formOrganizacao.get('cep')?.touched
+              "
+              class="text-danger"
+            >
+              <small *ngIf="formOrganizacao.get('cep')?.errors?.['required']"
+                >O CEP é obrigatório.</small
+              >
+              <small *ngIf="formOrganizacao.get('cep')?.errors?.['pattern']"
+                >CEP inválido. Formato esperado: 00000-000.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <!--Input Anexo-->
+        <!--Input Anexo Logo-->
+
+        <div class="form-group">
+          <label for="logo">Anexar Logo</label>
+          <input
+            type="file"
+            class="form-control"
+            id="logo"
+            formControlName="logo"
+            (change)="onFileChange($event, 'logo')"
+          />
+        </div>
+
+        <!-- Anexar Documento -->
+
+        <div class="form-group">
+          <label for="documento">Anexar Documento</label>
+          <input
+            type="file"
+            class="form-control"
+            id="documento"
+            formControlName="documento"
+            (change)="onFileChange($event, 'documento')"
+          />
+        </div>
+
+        <!-- Anexar QrCode -->
+        <div class="form-group">
+          <label for="qrCode">Anexar QR Code</label>
+          <input
+            type="file"
+            class="form-control"
+            id="qrCode"
+            formControlName="qrCode"
+            (change)="onFileChange($event, 'qrCode')"
+          />
+        </div>
+
+        <!--Botão Submit-->
+
+        <div class="text-end mb-3">
+          <!-- Botão -->
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="formOrganizacao.invalid"
+          >
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

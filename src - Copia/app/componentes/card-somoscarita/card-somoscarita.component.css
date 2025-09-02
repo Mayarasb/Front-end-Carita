@@ -1,0 +1,39 @@
+#textog{
+   font-weight: 700;
+   font-size: 33px;
+}
+#textom{
+  font-weight: 500;
+  font-style: normal;
+}
+#textop{
+  font-weight: 400;
+  font-size: 15px;
+}
+
+#meiosup{
+  background: radial-gradient( circle, white ,#FFF2E7) ;
+  color:#522916 ;
+  text-align: center;
+}
+
+.row{
+  align-items: center;
+}
+#imgmeiosup{
+  width: 428px;
+  display: flex;
+  
+}
+
+#botao1{
+  padding: 10px 20px;
+  border-radius: 16px;
+  width: 150px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #F9C89B;
+  color: #522916 ;
+  font-weight: bold;
+  border: none;
+}
