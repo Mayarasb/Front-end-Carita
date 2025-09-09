@@ -20,6 +20,8 @@ import { AlimentosNoticiasComponent } from './componentes/alimentos-noticias/ali
 import { DoacaoNoticiasComponent } from './componentes/doacao-noticias/doacao-noticias.component';
 import { PaginaPixComponent } from './componentes/pagina-pix/pagina-pix.component';
 import { DadosInstituicaoIdComponent } from './componentes/dados-instituicao-id/dados-instituicao-id.component';
+import { AvaliacaoSiteComponent } from './componentes/avaliacao-site/avaliacao-site.component';
+import { PaginaAdministradorComponent } from './componentes/pagina-administrador/pagina-administrador.component';
 
 export const routes: Routes = [
     {path: '', component: MainComponent },
@@ -44,6 +46,8 @@ export const routes: Routes = [
     {path: 'noticia-alimentos', component: AlimentosNoticiasComponent},
     {path: 'noticia-doacao', component: DoacaoNoticiasComponent},
     {path: 'pagina-pix', component: PaginaPixComponent},
+    {path: 'pagina-avaliacao', component: AvaliacaoSiteComponent},
+    {path: 'pagina-administrador', component: PaginaAdministradorComponent}
 
 
 

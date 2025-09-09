@@ -17,9 +17,10 @@ export class ParceirosService {
   getParceiros(): Observable<any> {
     return this.http.get(`${this.baseUrl}/parceiros`);
   }
- 
-postParceiros(payload: any): Observable<any> {
-  return this.http.post(`${this.baseUrl}/parceiros/cadastrar-com-ponto`, payload);
+
+postParceiros(payload: any, token: string | null): Observable<any> {
+  const headers = { 'Authorization': `Bearer ${token}` };
+  return this.http.post(`${this.baseUrl}/parceiros/cadastrar-com-ponto`, payload, { headers });
 }
 
 getParceiroByUsuarioId(idUsuario: number | string): Observable<any> {

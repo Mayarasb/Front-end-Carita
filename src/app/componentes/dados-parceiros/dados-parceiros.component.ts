@@ -22,14 +22,15 @@ export class DadosParceirosComponent  implements OnInit {
   showAlert = false;
    userId: number = 0;
   tipoParceiro: string = 'option1'; // 'option1' é o padrão (Parceiro Captador)
+  private token: string | null;
 
 
   constructor(private fb: FormBuilder, private parceiroService: ParceirosService,private pontoAradacaoService: pontoArrecadacaoService, private router: Router){
 
-    const token: any = localStorage.getItem("token");
+    this.token = localStorage.getItem("token");
   
-    if (token) {
-      const decoded: any = jwtDecode(token);
+    if (this.token) {
+      const decoded: any = jwtDecode(this.token);
       console.log(decoded);
       this.userId = decoded.id;
     }
@@ -123,7 +124,7 @@ onSubmit(): void {
       };
     }
 
-    this.parceiroService.postParceiros(parceiroPayload).subscribe({
+    this.parceiroService.postParceiros(parceiroPayload, this.token).subscribe({
       next: () => {
         this.showAlert = true;
         this.formParceiros.reset();

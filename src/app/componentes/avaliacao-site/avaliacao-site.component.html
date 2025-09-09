@@ -1,0 +1,97 @@
+<div tabindex="0" class="container-fluid main-content">
+  <div class="page-container">
+    <div class="sidebar">
+      <div class="sidebar-content">
+        <div class="dados-instituição d-flex flex-column align-items-center">
+          <img
+            src="\img\logo.png"
+            alt="Logo"
+            class="img-usuario d-inline-block align-text-top"
+          />
+          <a class="navbar-brand"> Olá, Parceiro! </a>
+        </div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a
+              routerLink="/pagina-parceiros"
+              class="nav-link active"
+              aria-current="page"
+              >Dados Parceiro</a
+            >
+          </li>
+          <li class="nav-item">
+            <a routerLink="/pagina-RepresentanteParceiros" class="nav-link"
+              >Dados Parceiros Representante</a
+            >
+          </li>
+
+            <li class="nav-item">
+            <a routerLink="/pagina-avaliacao" class="nav-link"
+              >Avaliação/Comentários</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/pagina-desativarParceiro" class="nav-link"
+              >Desativar</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link" style="cursor: pointer"
+              >Sair</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+<!-- Seção do Formulário -->
+  <div class="Form">
+    <form [formGroup]="AvaliacaoForm"   (ngSubmit)="onSubmit()">
+      <h1 class="text-center mb-4">Deixe sua avaliação sobre nós</h1>
+
+   
+      <!--Input mensagem-->
+      <div class="mb-3">
+        <textarea
+          formControlName="mensagem"
+          class="form-control"
+          rows="5"
+          placeholder="Mensagem..."
+          required
+        >
+        </textarea>
+
+        <!-- Validação Mensagem-->
+        <div
+          *ngIf="
+            AvaliacaoForm.get('mensagem')?.invalid &&
+            AvaliacaoForm.get('mensagem')?.touched
+          "
+        >
+          <span class="text-danger">Mensagem muito curta </span>
+        </div>
+      </div>
+
+      <!--Botão Submit com validaçao-->
+      <div class="d-grid justify-content-center">
+        <button
+
+          type="submit"
+          class="btn botao"
+          [disabled]="AvaliacaoForm.invalid"
+        >
+          Enviar
+        </button>
+            <div
+      *ngIf="showAlert"
+      class="alert mt-3 text-center"
+      role="alert"
+    >
+      Dados enviados com sucesso!
+    </div>
+      </div>
+    </form>
+  </div>
+
