@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './como-ajudar.component.html',
 styleUrl: './como-ajudar.component.css'
 })
-export class ComoAjudarComponent  implements OnInit {
+export class ComoAjudarComponent implements OnInit {
   pontosArrecadacao: pontoArrecadacao[] = [];
 
   constructor(private service: pontoArrecadacaoService) {}
@@ -20,5 +20,9 @@ export class ComoAjudarComponent  implements OnInit {
     this.service.getPontos().subscribe((dados) => {
       this.pontosArrecadacao = dados;
     });
+  }
+
+  mostrarNoMapa(ponto: pontoArrecadacao) {
+    window.dispatchEvent(new CustomEvent('mostrarPonto', { detail: ponto }));
   }
 }
