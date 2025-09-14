@@ -1,0 +1,10 @@
+<!-- Botão para enviar notificação de teste -->
+<button (click)="enviarTeste()" class="btn-enviar-teste">
+  Enviar Notificação de Teste
+</button>
+
+<!-- Lista de notificações recebidas -->
+<div *ngFor="let n of notificacoes" class="notificacao">
+  <h4>{{ n.titulo }}</h4>
+  <p>{{ n.mensagem }}</p>
+</div>
