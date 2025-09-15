@@ -12,7 +12,7 @@ import { jwtDecode } from "jwt-decode";
 export class UsuarioService {
 
 
-  private baseUrl = 'https://backend-carita-1.onrender.com';
+  private baseUrl = 'http://localhost:3000';
 
 
 
