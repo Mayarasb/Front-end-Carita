@@ -12,7 +12,7 @@ import { jsPDF } from "jspdf";
   templateUrl: './como-ajudar.component.html',
 styleUrl: './como-ajudar.component.css'
 })
-export class ComoAjudarComponent  implements OnInit {
+export class ComoAjudarComponent implements OnInit {
   pontosArrecadacao: pontoArrecadacao[] = [];
 
   constructor(private service: pontoArrecadacaoService) {}
@@ -23,6 +23,7 @@ export class ComoAjudarComponent  implements OnInit {
     });
   }
 
+ PDFs
    gerarPDF() {
   const doc = new jsPDF();
   doc.setFontSize(16);
@@ -51,5 +52,10 @@ export class ComoAjudarComponent  implements OnInit {
   });
   doc.save("pontos-arrecadacao.pdf");
 }
+
+
+  mostrarNoMapa(ponto: pontoArrecadacao) {
+    window.dispatchEvent(new CustomEvent('mostrarPonto', { detail: ponto }));
+  }
 }
 

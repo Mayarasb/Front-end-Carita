@@ -33,20 +33,22 @@
         <input type="text" class="form-control " placeholder="Pesquise" style="border: 1px solid #522916;">
       </div>
 
- <div *ngFor="let ponto of pontosArrecadacao" tabindex="0" class="cards-enderecos p-3 mb-3">
-  <div class="d-flex">
-    <i class="fas fa-map-marker-alt fs-4 me-3"></i>
-    <div>
-      <strong>{{ ponto.parceiro?.nome }}</strong><br />
-      <span class="text-muted">
-        <strong>Endereço:</strong>
-        {{ ponto.logradouro }}, {{ ponto.numero }} – {{ ponto.bairro }},
-        {{ ponto.cidade }} - {{ ponto.estado }}, {{ ponto.cep }}
-      </span>
-    </div>
-  </div>
-</div>
 
+
+      <div *ngFor="let ponto of pontosArrecadacao" 
+           class="cards-enderecos p-3 mb-3" 
+           (click)="mostrarNoMapa(ponto)" 
+           style="cursor:pointer;">
+        <div class="d-flex">
+          <i class="fas fa-map-marker-alt fs-4 me-3"></i>
+          <div>
+            <strong>{{ ponto.parceiro?.nome }}</strong><br />
+            <span class="text-muted">
+              <strong>Endereço:</strong> {{ ponto.logradouro }}, {{ ponto.numero }} – {{ ponto.bairro }}, {{ ponto.cidade }} - {{ ponto.estado }}, {{ ponto.cep }}
+            </span>
+          </div>
+        </div>
+      </div>
 
 
      <!-- Paginação -->
