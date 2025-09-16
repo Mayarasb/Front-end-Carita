@@ -1,5 +1,5 @@
 <!--Como ajudar Maps-->
-<div tabindex="0"style="display: inline-flexbox">
+<div tabindex="0" style="display: inline-flexbox">
   <!--Faixa Como Ajudar-->
   <div class="faixaCA text-center">
     <h1>Como Ajudar</h1>
@@ -21,55 +21,58 @@
 
 <!--Div containers conteudo-->
 <div tabindex="0" class="container my-4" style="color: #522916;">
-  <div class="mx-auto p-4 rounded pontos-arrecadacao" >
-      <!-- Título -->
-      <h5 class="text-center fw-bold mb-4">Pontos de Doação</h5>
+  <div class="mx-auto p-4 rounded pontos-arrecadacao">
+    <!-- Título -->
+    <h5 class="text-center fw-bold mb-4">Pontos de Doação</h5>
 
-      <!-- Campo de pesquisa -->
-      <div class="input-group mb-3">
-        <span class="input-group-text  ">
-          <i class="fas fa-search"></i>
-        </span>
-        <input type="text" class="form-control " placeholder="Pesquise" style="border: 1px solid #522916;">
-      </div>
-
-
-
-      <div *ngFor="let ponto of pontosArrecadacao" 
-           class="cards-enderecos p-3 mb-3" 
-           (click)="mostrarNoMapa(ponto)" 
-           style="cursor:pointer;">
-        <div class="d-flex">
-          <i class="fas fa-map-marker-alt fs-4 me-3"></i>
-          <div>
-            <strong>{{ ponto.parceiro?.nome }}</strong><br />
-            <span class="text-muted">
-              <strong>Endereço:</strong> {{ ponto.logradouro }}, {{ ponto.numero }} – {{ ponto.bairro }}, {{ ponto.cidade }} - {{ ponto.estado }}, {{ ponto.cep }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-
-     <!-- Paginação -->
-          <nav  aria-label="Page navigation example" class="d-flex justify-content-between align-items-center">
-        <ul class="pagination mb-0">
-          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-         <button class="btn btn-primary btn-pdf" (click)="gerarPDF()">Gerar lista em PDF</button>
-      </nav>
+    <!-- Campo de pesquisa -->
+    <div class="input-group mb-3">
+      <span class="input-group-text">
+        <i class="fas fa-search"></i>
+      </span>
+      <input type="text" class="form-control" placeholder="Pesquise" style="border: 1px solid #522916;">
     </div>
 
-   
+    <!-- Lista paginada -->
+    <div *ngFor="let ponto of paginatedPontos"
+         class="cards-enderecos p-3 mb-3"
+         (click)="mostrarNoMapa(ponto)"
+         style="cursor:pointer;">
+      <div class="d-flex">
+        <i class="fas fa-map-marker-alt fs-4 me-3"></i>
+        <div>
+          <strong>{{ ponto.parceiro?.nome }}</strong><br />
+          <span class="text-muted">
+            <strong>Endereço:</strong> {{ ponto.logradouro }}, {{ ponto.numero }} – {{ ponto.bairro }}, {{ ponto.cidade }} - {{ ponto.estado }}, {{ ponto.cep }}
+          </span>
+        </div>
+      </div>
+    </div>
 
+    <!-- Paginação -->
+ <nav aria-label="Page navigation example" class="d-flex justify-content-between align-items-center">
+      <ul class="pagination mb-0">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" href="#" (click)="previousPage(); $event.preventDefault()">Previous</a>
+        </li>
 
-  <!--Maps-->
+        <li class="page-item"
+            *ngFor="let page of [].constructor(totalPages); let i = index"
+            [class.active]="currentPage === i + 1">
+          <a class="page-link" href="#" (click)="goToPage(i + 1); $event.preventDefault()">{{ i + 1 }}</a>
+        </li>
+
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+          <a class="page-link" href="#" (click)="nextPage(); $event.preventDefault()">Next</a>
+        </li>
+      </ul>
+
+      <button class="btn btn-primary btn-pdf" (click)="gerarPDF()">Gerar lista em PDF</button>
+    </nav>
+  </div>
+
+  <!-- Maps -->
   <div class="col-md-6">
     <app-mapa></app-mapa>
   </div>
 </div>
-
