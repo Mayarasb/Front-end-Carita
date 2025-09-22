@@ -22,6 +22,8 @@ import { PaginaPixComponent } from './componentes/pagina-pix/pagina-pix.componen
 import { DadosInstituicaoIdComponent } from './componentes/dados-instituicao-id/dados-instituicao-id.component';
 import { AvaliacaoSiteComponent } from './componentes/avaliacao-site/avaliacao-site.component';
 import { PaginaAdministradorComponent } from './componentes/pagina-administrador/pagina-administrador.component';
+import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuarios.component';
+
 
 export const routes: Routes = [
     {path: '', component: MainComponent },
@@ -47,8 +49,8 @@ export const routes: Routes = [
     {path: 'noticia-doacao', component: DoacaoNoticiasComponent},
     {path: 'pagina-pix', component: PaginaPixComponent},
     {path: 'pagina-avaliacao', component: AvaliacaoSiteComponent},
-    {path: 'pagina-administrador', component: PaginaAdministradorComponent}
-
+    {path: 'pagina-administrador', component: PaginaAdministradorComponent},
+    {path: 'lista-usuarios', component: ListaUsuariosComponent}
 
 
 
