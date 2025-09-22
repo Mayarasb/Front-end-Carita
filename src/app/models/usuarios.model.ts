@@ -2,5 +2,7 @@ export interface Usuario{
     email: string,
     cpf: string,
     senha:string
-   // status: boolean
+    status: boolean
+    createdAt: Date;
+    updatedAt: Date;
   }

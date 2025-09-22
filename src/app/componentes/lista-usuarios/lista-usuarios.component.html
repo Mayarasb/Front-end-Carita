@@ -1,0 +1,35 @@
+<div class="container-fluid p-4">
+  <h2 class="mb-4 text-center">Usuários</h2>
+
+  <!-- Pesquisa + botão -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <input type="text" class="form-control w-50" placeholder="Pesquise"
+           [(ngModel)]="filtro">
+    <button class="btn btn-warning ms-2" (click)="exportarRelatorio()">
+      Exportar Relatório
+    </button>
+  </div>
+
+  <!-- Tabela -->
+  <table class="table table-striped table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th>E-mail</th>
+        <th>CPF</th>
+        <th>Data de Criação</th>
+        <th>Situação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuariosFiltrados()">
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.cpf }}</td>
+        <td>{{ usuario.createdAt | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <span *ngIf="usuario.status" class="badge bg-success">Ativo</span>
+          <span *ngIf="!usuario.status" class="badge bg-danger">Inativo</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
