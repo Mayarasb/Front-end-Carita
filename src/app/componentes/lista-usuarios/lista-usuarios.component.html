@@ -1,4 +1,62 @@
-<div class="container-fluid p-4">
+<!--Página Bkackgtounf-->
+<div tabindex="0" class="container-fluid main-content">
+  <!--Background área Formulário-->
+  <div class="page-container">
+    <!--SideBar: Backgound-->
+    <div class="sidebar">
+      <!--Conteúdo Sidebar-->
+      <div class="sidebar-content">
+        <!--Imagem Sidebar-->
+        <div class="dados-instituição d-flex flex-column align-items-center">
+          <img
+            src="\img\logo.png"
+            alt="Logo"
+            class="img-usuario d-inline-block align-text-top"
+          />
+          <a class="navbar-brand"> Olá, Administrador! </a>
+        </div>
+
+        <!--Tópicos Sidebar-->
+        <ul class="nav flex-column">
+           
+          <li class="nav-item">
+            <a routerLink="/pagina-representante" class="nav-link"
+              >Dashboard</a
+            >
+          </li>
+          <li class="nav-item">
+            <a routerLink="/lista-usuarios" class="nav-link"
+              >Usuários</a
+            >
+          </li>
+
+            <li class="nav-item">
+            <a routerLink="/pagina-avaliacao" class="nav-link"
+              >Organizações</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/lista-usuarios" class="nav-link"
+              >Parceiros</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/pagina-desativarOng" class="nav-link">Ponto de Arrecadação</a>
+          </li>
+
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link" style="cursor: pointer"
+              >Sair</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+<div class="container-fluid p-4 border-radius bg-light shadow-sm">
   <h2 class="mb-4 text-center">Usuários</h2>
 
   <!-- Pesquisa + botão -->

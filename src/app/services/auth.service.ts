@@ -11,7 +11,7 @@ interface LoginResponse {
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'https://backend-carita-1.onrender.com/autenticacao'; 
+  private baseUrl = 'http://localhost:3000/autenticacao'; 
 
   constructor(private http: HttpClient) {}
 
