@@ -50,5 +50,8 @@ width: 500px;
   border-color: #0056b3;
 }
 
-
+#Textoperso{
+  background-color: var(--cor-primaria);
+  font-weight: 500 !important;
+}
 
