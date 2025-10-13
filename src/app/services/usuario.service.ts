@@ -12,7 +12,7 @@ import { jwtDecode } from "jwt-decode";
 export class UsuarioService {
 
 
-  private baseUrl = 'https://backend-carita-1.onrender.com';
+  private baseUrl = 'http://localhost:3000';
 
 
 
@@ -34,6 +34,9 @@ export class UsuarioService {
     const userId = decoded.id || decoded.userId;
     console.log(userId);
   }
+
+  console.log(`${this.baseUrl}/usuarios`)
+
     return this.http.get(`${this.baseUrl}/usuarios`,{
       headers: this.getAuthHeaders()
     });
