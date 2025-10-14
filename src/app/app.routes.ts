@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { ListaOrganizacoesComponent } from './componentes/lista-organizacoes/lista-organizacoes.component';
+import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { PaginaSobreComponent } from './componentes/pagina-sobre/pagina-sobre.component';
 import { MainComponent } from './main/main.component';
 import { PaginaConteudoComponent } from './componentes/pagina-conteudo/pagina-conteudo.component';
@@ -27,6 +29,8 @@ import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuar
 
 export const routes: Routes = [
     {path: '', component: MainComponent },
+    {path: 'lista-organizacoes', component: ListaOrganizacoesComponent },
+    {path: 'dashboard', component: DashboardComponent },
     {path: 'pagina-sobre', component: PaginaSobreComponent },
     {path: 'pagina-conteudo', component: PaginaConteudoComponent },
     {path: 'pagina-comoAjudar', component: PaginaComoajudarComponent },

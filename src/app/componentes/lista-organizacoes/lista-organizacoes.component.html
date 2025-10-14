@@ -31,7 +31,7 @@
           </li>
 
             <li class="nav-item">
-            <a routerLink="/lista-organizacoes" class="nav-link"
+            <a routerLink="/pagina-avaliacao" class="nav-link"
               >Organizações</a
             >
           </li>
@@ -58,7 +58,7 @@
 
 
   <div class="container-fluid p-4 border-radius bg-light shadow-sm">
-  <h2 class="mb-4 text-center">Lista Usuários</h2>
+  <h2 class="mb-4 text-center">Lista Organizações</h2>
 
   <!-- Pesquisa + botão -->
   <div class="d-flex justify-content-between align-items-center mb-3 ">
@@ -74,21 +74,23 @@
     <thead class="table-light">
       <tr>
         <th>ID</th>
+        <th>Nome</th>
         <th>E-mail</th>
-        <th>CPF</th>
+        <th>CNPJ</th>
         <th>Data de Criação</th>
         <th>Situação</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let usuario of usuariosFiltrados()">
-        <td>{{ usuario.id }}</td>
-        <td>{{ usuario.email }}</td>
-        <td>{{ usuario.cpf }}</td>
-        <td>{{ usuario.createdAt | date:'dd/MM/yyyy' }}</td>
+      <tr *ngFor="let organizacao of organizacoesFiltradas()">
+        <td>{{ organizacao.id }}</td>
+        <td>{{ organizacao.nome }}</td>
+        <td>{{ organizacao.email }}</td>
+        <td>{{ organizacao.cnpj }}</td>
+        <td>{{ organizacao.createdAt | date:'dd/MM/yyyy' }}</td>
         <td>
-          <span *ngIf="usuario.status" class="badge bg-success">Ativo</span>
-          <span *ngIf="!usuario.status" class="badge bg-danger">Inativo</span>
+          <span *ngIf="organizacao.status" class="badge bg-success">Ativo</span>
+          <span *ngIf="!organizacao.status" class="badge bg-danger">Inativo</span>
         </td>
       </tr>
     </tbody>
