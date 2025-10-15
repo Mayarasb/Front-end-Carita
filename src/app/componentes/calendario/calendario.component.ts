@@ -7,7 +7,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import ptBrLocale from '@fullcalendar/core/locales/pt-br';
-
+import { CalendarioService} from '../../services/calendario.service';
 
 @Component({
   selector: 'app-calendario',
@@ -17,6 +17,7 @@ import ptBrLocale from '@fullcalendar/core/locales/pt-br';
   styleUrls: ['./calendario.component.css'],
 })
 export class CalendarioComponent {
+  constructor(private calendarioService: CalendarioService) {}
   calendarOptions: any = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin, interactionPlugin],
@@ -32,27 +33,27 @@ export class CalendarioComponent {
   selectedEvent: any = null; // evento selecionado
 
   // Criar evento clicando em um dia
-  onDateSelect(selectionInfo: any) {
+   onDateSelect(selectionInfo: any) {
     const title = prompt('Título do evento:');
     if (title) {
       const descricao = prompt('Descrição:');
       const endereco = prompt('Endereço:');
-      const start = prompt('Data/Hora início (YYYY-MM-DD HH:mm):', selectionInfo.startStr);
-      const end = prompt('Data/Hora término (YYYY-MM-DD HH:mm):', selectionInfo.endStr || selectionInfo.startStr);
+      const start = selectionInfo.startStr;
+      const end = selectionInfo.endStr || selectionInfo.startStr;
 
-      const newEvent = {
-        id: String(new Date().getTime()),
-        title,
-        start,
-        end,
-        extendedProps: {
-          descricao,
-          endereco,
+      const newEvent = { title, description: descricao, address: endereco, start, end };
+
+      this.calendarioService.adicionarEvento(newEvent).subscribe({
+        next: (eventoSalvo) => {
+          console.log('Evento salvo no backend:', eventoSalvo);
+          this.events.push(eventoSalvo);
+          this.calendarOptions.events = [...this.events];
+        },
+        error: (err) => {
+          console.error('Erro ao salvar evento:', err);
+          alert('Erro ao salvar evento no servidor!');
         }
-      };
-
-      this.events.push(newEvent);
-      this.calendarOptions.events = [...this.events];
+      });
     }
   }
 
