@@ -1,0 +1,40 @@
+h2 {
+  font-weight: bold;
+  color: var(--cor-textoSecundaria);
+  background-color: var( --cor-faixafooter);
+}
+
+.table {
+  font-size: 14px;
+  color: var(--cor-textoPrimaria);
+}
+
+.page-container {
+  display: flex;
+  width: 100%;
+  
+}
+
+.botao-relatorio {
+  background-color: var(--cor-primaria);
+}
+
+.sidebar {
+background-color: #f4f4f4;
+padding: 30px;
+width: 30%;
+}
+
+.sidebar-content {
+  text-align: center;
+  
+}
+
+
+.img-usuario{
+    width: 105px;
+    height: 95px;
+    margin-bottom: 20px !important;
+}
+
+

@@ -5,6 +5,7 @@ import { DadosRepresentanteComponent } from '../dados-representante/dados-repres
 import { DesativarContaComponent } from '../desativar-conta/desativar-conta.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ApiService } from '../../api.service';
+import { ListaUsuariosComponent } from '../lista-usuarios/lista-usuarios.component';
 
 @Component({
   selector: 'app-pagina-usuario',

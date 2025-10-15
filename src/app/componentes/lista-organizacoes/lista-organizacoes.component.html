@@ -1,0 +1,100 @@
+<!--Página Bkackgtounf-->
+<div tabindex="0" class="container-fluid main-content">
+  <!--Background área Formulário-->
+  <div class="page-container">
+    <!--SideBar: Backgound-->
+    <div class="sidebar">
+      <!--Conteúdo Sidebar-->
+      <div class="sidebar-content">
+        <!--Imagem Sidebar-->
+        <div class="dados-instituição d-flex flex-column align-items-center">
+          <img
+            src="\img\logo.png"
+            alt="Logo"
+            class="img-usuario d-inline-block align-text-top"
+          />
+          <a class="navbar-brand"> Olá, Administrador! </a>
+        </div>
+
+        <!--Tópicos Sidebar-->
+        <ul class="nav flex-column">
+           
+          <li class="nav-item">
+            <a routerLink="/dashboard" class="nav-link"
+              >Dashboard</a
+            >
+          </li>
+          <li class="nav-item">
+            <a routerLink="/lista-usuarios" class="nav-link"
+              >Usuários</a
+            >
+          </li>
+
+            <li class="nav-item">
+            <a routerLink="/pagina-avaliacao" class="nav-link"
+              >Organizações</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/lista-usuarios" class="nav-link"
+              >Parceiros</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a routerLink="/pagina-desativarOng" class="nav-link">Ponto de Arrecadação</a>
+          </li>
+
+          <li class="nav-item">
+            <a (click)="logout()" class="nav-link" style="cursor: pointer"
+              >Sair</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+  <div class="container-fluid p-4 border-radius bg-light shadow-sm">
+  <h2 class="mb-4 text-center">Lista Organizações</h2>
+
+  <!-- Pesquisa + botão -->
+  <div class="d-flex justify-content-between align-items-center mb-3 ">
+    <input type="text" class="form-control w-50" placeholder="Pesquise"
+           [(ngModel)]="filtro">
+    <button class="btn btn-warning ms-2 botao-relatorio" (click)="exportarRelatorio()">
+      Exportar Relatório
+    </button>
+  </div>
+
+  <!-- Tabela -->
+  <table class="table table-striped table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>CNPJ</th>
+        <th>Data de Criação</th>
+        <th>Situação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let organizacao of organizacoesFiltradas()">
+        <td>{{ organizacao.id }}</td>
+        <td>{{ organizacao.nome }}</td>
+        <td>{{ organizacao.email }}</td>
+        <td>{{ organizacao.cnpj }}</td>
+        <td>{{ organizacao.createdAt | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <span *ngIf="organizacao.status" class="badge bg-success">Ativo</span>
+          <span *ngIf="!organizacao.status" class="badge bg-danger">Inativo</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>

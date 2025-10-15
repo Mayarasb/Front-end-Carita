@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { ListaOrganizacoesComponent } from './componentes/lista-organizacoes/lista-organizacoes.component';
+import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { PaginaSobreComponent } from './componentes/pagina-sobre/pagina-sobre.component';
 import { MainComponent } from './main/main.component';
 import { PaginaConteudoComponent } from './componentes/pagina-conteudo/pagina-conteudo.component';
@@ -22,9 +24,13 @@ import { PaginaPixComponent } from './componentes/pagina-pix/pagina-pix.componen
 import { DadosInstituicaoIdComponent } from './componentes/dados-instituicao-id/dados-instituicao-id.component';
 import { AvaliacaoSiteComponent } from './componentes/avaliacao-site/avaliacao-site.component';
 import { PaginaAdministradorComponent } from './componentes/pagina-administrador/pagina-administrador.component';
+import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuarios.component';
+
 
 export const routes: Routes = [
     {path: '', component: MainComponent },
+    {path: 'lista-organizacoes', component: ListaOrganizacoesComponent },
+    {path: 'dashboard', component: DashboardComponent },
     {path: 'pagina-sobre', component: PaginaSobreComponent },
     {path: 'pagina-conteudo', component: PaginaConteudoComponent },
     {path: 'pagina-comoAjudar', component: PaginaComoajudarComponent },
@@ -47,8 +53,8 @@ export const routes: Routes = [
     {path: 'noticia-doacao', component: DoacaoNoticiasComponent},
     {path: 'pagina-pix', component: PaginaPixComponent},
     {path: 'pagina-avaliacao', component: AvaliacaoSiteComponent},
-    {path: 'pagina-administrador', component: PaginaAdministradorComponent}
-
+    {path: 'pagina-administrador', component: PaginaAdministradorComponent},
+    {path: 'lista-usuarios', component: ListaUsuariosComponent}
 
 
 
