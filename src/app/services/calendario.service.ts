@@ -23,12 +23,11 @@ export class CalendarioService {
   constructor(private http: HttpClient) {}
 
   getEventos(): Observable<Calendario[]> {
-    return this.http.get<{ eventos: Calendario[] }>(this.apiUrl).pipe(
-      map(response => {
-        console.log('Eventos recebidos do backend:', response.eventos);
-        return response.eventos;
-      })
-    );
+    return this.http.get<Calendario[]>(this.apiUrl);
+    //return this.http.get<{ eventos: Calendario[] }>(this.apiUrl)
+      //map(response => {
+       // console.log('Eventos recebidos do backend:', response.eventos);
+//return response.eventos;
   }
 
   adicionarEvento(evento: Calendario): Observable<Calendario> {

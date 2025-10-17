@@ -41,19 +41,15 @@
               >Parceiros</a
             >
           </li>
-          <li class="nav-item">
-            <a routerLink="/calendario" class="nav-link"
-              >Eventos</a
-            >
-           </li>
+
           <li class="nav-item">
             <a routerLink="/pagina-desativarOng" class="nav-link">Ponto de Arrecadação</a>
           </li>
 
           <li class="nav-item">
-          <!--- <a (click)="logout()" class="nav-link" style="cursor: pointer"
-              >Sair</a-> -->
-            > 
+            <a (click)="logout()" class="nav-link" style="cursor: pointer"
+              >Sair</a
+            >
           </li>
         </ul>
       </div>
@@ -61,8 +57,21 @@
 
 
   <div class= "container-dashboard">
-    <h2 class="mb-4 text-center ">Calendario</h2>
-    <full-calendar [options]="calendarOptions"></full-calendar>
+    <h2 class="mb-4 text-center ">Dashboard</h2>
+
+  
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<full-calendar [options]="calendarOptions"></full-calendar>
 
 <div id="eventModal" class="modal" tabindex="-1" style="display:none; background: rgba(0,0,0,0.5); position:fixed; top:0; left:0; width:100%; height:100%;">
   <div class="modal-dialog" style="margin:10% auto; max-width:500px;">
@@ -85,16 +94,3 @@
     </div>
   </div>
 </div>
-
-  
-
-
-</div>
-</div>
-</div>
-
-
-
-
-
-
