@@ -3,6 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Calendario } from '../models/calendario.model';
  
+
+export interface Evento {
+  id: number;
+  title: string;
+  start: string;
+  end?: string;
+  description?: string;
+  address?: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +24,10 @@ export class CalendarioService {
 
   getEventos(): Observable<Calendario[]> {
     return this.http.get<Calendario[]>(this.apiUrl);
-        
+    //return this.http.get<{ eventos: Calendario[] }>(this.apiUrl)
+      //map(response => {
+       // console.log('Eventos recebidos do backend:', response.eventos);
+//return response.eventos;
   }
 
   adicionarEvento(evento: Calendario): Observable<Calendario> {

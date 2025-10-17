@@ -25,7 +25,7 @@ import { DadosInstituicaoIdComponent } from './componentes/dados-instituicao-id/
 import { AvaliacaoSiteComponent } from './componentes/avaliacao-site/avaliacao-site.component';
 import { PaginaAdministradorComponent } from './componentes/pagina-administrador/pagina-administrador.component';
 import { ListaUsuariosComponent } from './componentes/lista-usuarios/lista-usuarios.component';
-
+import { CalendarioComponent } from './componentes/calendario/calendario.component';
 
 export const routes: Routes = [
     {path: '', component: MainComponent },
@@ -54,7 +54,9 @@ export const routes: Routes = [
     {path: 'pagina-pix', component: PaginaPixComponent},
     {path: 'pagina-avaliacao', component: AvaliacaoSiteComponent},
     {path: 'pagina-administrador', component: PaginaAdministradorComponent},
-    {path: 'lista-usuarios', component: ListaUsuariosComponent}
+    {path: 'lista-usuarios', component: ListaUsuariosComponent},
+    {path: 'calendario', component: CalendarioComponent},
+    
 
 
 
